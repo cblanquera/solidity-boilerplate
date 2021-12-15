@@ -36,12 +36,12 @@ module.exports = {
       accounts: [process.env.BLOCKCHAIN_LOCALHOST_PRIVATE_KEY],
       contracts: [process.env.BLOCKCHAIN_LOCALHOST_CONTRACT_ADDRESS]
     },
-    bsctestnet: {
+    testnet: {
       url: process.env.BLOCKCHAIN_TESTNET_RPC_URL,
       accounts: [process.env.BLOCKCHAIN_TESTNET_PRIVATE_KEY],
       contracts: [process.env.BLOCKCHAIN_TESTNET_CONTRACT_ADDRESS]
     },
-    bscmainnet: {
+    mainnet: {
       url: process.env.BLOCKCHAIN_MAINNET_RPC_URL,
       accounts: [process.env.BLOCKCHAIN_MAINNET_PRIVATE_KEY],
       contracts: [process.env.BLOCKCHAIN_MAINNET_CONTRACT_ADDRESS]
@@ -58,7 +58,7 @@ module.exports = {
   },
   paths: {
     sources: "./contracts",
-    tests: "./test",
+    tests: "./tests",
     cache: "./cache",
     artifacts: "./artifacts"
   },
@@ -67,7 +67,7 @@ module.exports = {
   },
   gasReporter: {
     currency: 'USD',
-    token: 'BNB', //comment this out if you want ETH
+    token: 'MATIC', //comment this out if you want ETH
     coinmarketcap: process.env.BLOCKCHAIN_CMC_KEY,
     gasPrice: 200,
   },
