@@ -1,7 +1,10 @@
 //to run this on testnet:
-// $ npx hardhat run scripts/pause.js
+// $ npx hardhat run scripts/Demo20/mint.js
 
 const hardhat = require('hardhat')
+
+const mintRecipient = ''
+const mintAmount = 100
 
 function estimateGas(provider, multiplier = 5) {
   const gasPrice = (await provider.getGasPrice()).mul(multiplier).toString(); //wei
@@ -14,12 +17,11 @@ async function main() {
   await hre.run('compile');
   const network = hardhat.config.networks[hardhat.config.defaultNetwork]
   const provider = new hardhat.ethers.providers.JsonRpcProvider(network.url)
-  const name = hardhat.config.mainContractName
 
-  const Factory = await hardhat.ethers.getContractFactory(name)
+  const Factory = await hardhat.ethers.getContractFactory('Demo20')
   const contract = await Factory.attach(network.contracts[0])
-  await contract.pause(estimateGas(provider))
-  console.log('Contract paused')
+  const tx = await contract.mint(mintRecipient, mintAmount, estimateGas(provider))
+  console.log('Minted', mintAmount, 'to', mintRecipient, tx)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

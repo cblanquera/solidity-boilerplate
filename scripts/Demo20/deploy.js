@@ -1,12 +1,12 @@
 //to run this on testnet:
-// $ npx hardhat run scripts/AODToken/deployToken.js
+// $ npx hardhat run scripts/Demo20/deploy.js
 
 const hardhat = require('hardhat')
 
 async function main() {
   await hre.run('compile')
-  const Token = await hardhat.ethers.getContractFactory('[Contract Class Name]')
-  const token = await Token.deploy(/* Arguments? */)
+  const Token = await hardhat.ethers.getContractFactory('Demo20')
+  const token = await Token.deploy('Demo 20', 'DTWTY')
   await token.deployed()
   
   console.log('Token contract deployed to (update .env):', token.address)

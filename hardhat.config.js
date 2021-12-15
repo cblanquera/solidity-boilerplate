@@ -20,7 +20,6 @@ task("accounts", "Prints the list of accounts", async () => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  mainContractName: process.env.BLOCKCHAIN_CONTRACT_NAME,
   defaultNetwork: process.env.BLOCKCHAIN_NETWORK,
   networks: {
     hardhat: {
